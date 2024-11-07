@@ -89,19 +89,19 @@ public class Main {
 			return st.nextToken();
 		}
 
-		String nextLine() { // read a line in the input
-			String str = "";
-			try {
-				if (st.hasMoreTokens()) {
-					str = st.nextToken("\n");
-				} else {
-					str = br.readLine();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return str;
-		}
+		 String nextLine() { // read a line in the input
+	            String str = "";
+	            try {
+	                if (st == null || !st.hasMoreTokens()) {
+	                    str = br.readLine();
+	                    st = new StringTokenizer(str);
+	                }
+	                str = st.nextToken("\n");
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	            return str;
+	        }
 	}
 
 	public static void main(String[] args) throws Exception {
